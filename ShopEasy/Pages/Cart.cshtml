@@ -1,0 +1,28 @@
+﻿@page
+@model ShopEasy.Pages.CartModel
+@{
+	ViewData["Title"] = "Cart";
+}
+<h2>Your Cart:</h2>
+<div>
+    @if (Model.Cart != null && Model.Cart.Any())
+    {
+        @foreach (var item in Model.Cart)
+        {
+            <div>
+                <h3>@item.Product.Name</h3>
+                <p>Price: $@item.Product.Price</p>
+                <p>Quantity: @item.Quantity</p>
+            </div>
+        }
+    }
+    else
+    {
+        <p>Your cart is empty.</p>
+    }
+
+</div>
+<a asp-page="/Index">
+<button type="button">Back to Shop</button></a>
+<a asp-page="/Checkout">
+<button type="button">Proceed to Checkout</button></a>
