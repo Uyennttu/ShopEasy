@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
-using Microsoft.AspNetCore.Http;
 
-namespace ShopEasy.Helpers
+namespace ShopEasy.Service
 {
-    public static class SessionHelper
+    public static class SessionService
     {
         public static void SetObjectAsJson(this ISession session, string key, object value)
         {

@@ -1,0 +1,47 @@
+﻿table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse:collapse;
+    table-layout:fixed;
+}
+.hover-row:hover {
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    cursor: pointer;
+}
+
+
+th {
+    border-bottom: 1px solid;
+    padding: 8px;
+    text-align: left;
+}
+td {
+    padding: 10px;
+    border-bottom: 1px solid;
+    width: 40%;
+}
+
+.btn-increase {
+    background-color: #28a745;
+    color:white;
+    text-decoration:none;
+    padding: 5px 10px;
+    border-radius:5px;
+    
+}
+.btn-remove {
+    background-color: #dc3545;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.btn-increase:hover, .btn-remove:hover {
+    opacity: 0.8;
+}
+.btn-container{
+    text-align:right;
+}
+.btn {
+    text-decoration: none;    
+}

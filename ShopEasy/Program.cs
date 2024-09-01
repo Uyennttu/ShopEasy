@@ -5,9 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<ProductService>();
-builder.Services.AddScoped<CartService>();
-builder.Services.AddDistributedMemoryCache();
-builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession(options => {
 	options.IdleTimeout = TimeSpan.FromMinutes(30); // Sets session timeout
 	options.Cookie.HttpOnly = true;

@@ -19,7 +19,6 @@ namespace ShopEasy.Pages
         public void OnGet()
         {
 			Products = _productService.GetProducts();
-
 		}
     }
 

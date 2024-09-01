@@ -1,0 +1,40 @@
+﻿.checkout-container {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.order-summary {
+    width: 40%;
+    padding: 20px;
+}
+
+.order-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.order-item img {
+    max-width: 30%;
+    margin-right: 20px;
+}
+
+.shipping-info {
+    width: 40%;
+    padding: 20px;
+}
+
+.shipping-info form {
+    display: flex;
+    flex-direction: column;
+}
+
+.shipping-info button {
+    padding: 5px 10px;
+    margin-top: 20px;
+    width: 40%;
+}
+
+.shipping-info button:hover {
+    background-color: navajowhite;
+}

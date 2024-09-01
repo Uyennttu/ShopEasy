@@ -15,7 +15,10 @@ namespace ShopEasy.Service
         public IEnumerable<Product> GetProducts() => _products;
 
         // Get a single product by its ID
-        public Product GetProductById(int id) => _products.FirstOrDefault(p => p.Id == id);
+        public Product GetProductById(int id) {            
+            return _products.FirstOrDefault(p => p.Id == id);
+        } 
+
     }
 
 }

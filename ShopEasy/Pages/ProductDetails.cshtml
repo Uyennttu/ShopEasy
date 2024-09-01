@@ -3,24 +3,28 @@
 @{
     ViewData["Title"] = "Product Details";
 }
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/ProductDetails.css" />
+</head>
+<h2>@Model.Product.Name</h2>
+    <div class="item">
+        <img src="@Model.Product.Image" alt="@Model.Product.Name"/>
 
-
-    <h2 style="text-align:center;">@Model.Product.Name</h2>
-    <div class="item" style="display:flex; flex-direction:row;justify-content:center; margin-top:50px;gap:40px">
-        <img src="@Model.Product.Image" alt="@Model.Product.Name" style="max-width:300px;" />
-
-        <div class="item-detail" style="display:flex; flex-direction:column;">
+        <div class="item-detail">
             <p>Price: $@Model.Product.Price</p>
             <p>Description: @Model.Product.Description</p>
             <p>Stock: @Model.Product.Stock</p>
             <p>Product Made By: @Model.Product.MadeBy</p>
+        <div class="btn">
+        <form method="get" asp-page="/Cart">
+            <input type="hidden" name="Id" value="@Model.Product.Id" />
+            <button type="submit">Add To Cart</button>
+        </form>
 
-            <form method="post" asp-page="/Cart">
-                <input type="hidden" name="productId" value="@Model.Product.Id" />
-                <p>Quantity: </p>
-                <input type="number" name="quantity" value="1" min="1" />
-                <button type="submit">Add To Cart</button>
-            </form>
+        <a asp-page="/Index">
+        <button>Back To Shop</button>    
+        </a>
+        </div>
         </div>
     </div>
 
