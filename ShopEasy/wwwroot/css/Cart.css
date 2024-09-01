@@ -21,21 +21,6 @@ td {
     width: 40%;
 }
 
-.btn-increase {
-    background-color: #28a745;
-    color:white;
-    text-decoration:none;
-    padding: 5px 10px;
-    border-radius:5px;
-    
-}
-.btn-remove {
-    background-color: #dc3545;
-    color: white;
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
 .btn-increase:hover, .btn-remove:hover {
     opacity: 0.8;
 }

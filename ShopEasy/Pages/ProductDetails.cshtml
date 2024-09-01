@@ -16,10 +16,13 @@
             <p>Stock: @Model.Product.Stock</p>
             <p>Product Made By: @Model.Product.MadeBy</p>
         <div class="btn">
-        <form method="get" asp-page="/Cart">
-            <input type="hidden" name="Id" value="@Model.Product.Id" />
-            <button type="submit">Add To Cart</button>
-        </form>
+            <form method="post" asp-page="/Cart" asp-page-handler="AddToCart">
+                
+                    <input type="hidden" name="productId" value="@Model.Product.Id" />
+                    <button type="submit">Add to Cart</button>
+                </form>
+
+        
 
         <a asp-page="/Index">
         <button>Back To Shop</button>    

@@ -7,12 +7,6 @@
 
 <h2>Your Cart:</h2>
 <table>
-    
-{
-    @{
-        var totalBill = Model.CartItems.Sum(item => item.Product.Price * item.Quantity);
-    }
-    
     <tr>
         <th>Image</th>
         <th>Name</th>
@@ -21,34 +15,38 @@
         <th>SubTotal</th>
         <th></th>
         <th></th>
-       
     </tr>
     <tbody>
-        
-    @foreach (var item in Model.CartItems)
+        @foreach (var item in Model.CartItems)
         {
-                  <tr class="hover-row">
-        <td>
-            <img src="@item.Product.Image" alt="@item.Product.Name" style="max-width:100%; max-height:auto;" />
-        </td>
-            <td>@item.Product.Name</td>
-            <td>$@item.Product.Price</td>
-            <td>@item.Quantity</td>
-            <td>$@((@item.Product.Price * @item.Quantity).ToString("0.00"))</td>
-            <td>
-                <a class="btn-increase" asp-page-handler="Increase" asp-route-id="@item.Product.Id">+</a>
-            </td>
+            <tr class="hover-row">
                 <td>
-                <a class="btn-remove" asp-page-handler="Delete" asp-route-id="@item.Product.Id">-</a>
-            </td>
-      </tr>
-    }
+                    <img src="@item.Product.Image" alt="@item.Product.Name" style="max-width:100%; max-height:auto;" />
+                </td>
+                <td>@item.Product.Name</td>
+                <td>$@item.Product.Price.ToString("0.00")</td>
+                <td>@item.Quantity</td>
+                <td>$@((item.Product.Price * item.Quantity).ToString("0.00"))</td>
+                <td>
+                    <form method="post" asp-page-handler="IncreaseQuantity">
+                        <input type="hidden" name="productId" value="@item.Product.Id" />
+                        <button type="submit">+</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" asp-page-handler="Remove">
+                        <input type="hidden" name="productId" value="@item.Product.Id" />
+                        <button type="submit">-</button>
+                    </form>
+                </td>
+            </tr>
         }
-       
-            </tbody>
-       
-        }
-        </table>
+    </tbody>
+</table>
+
+@{
+    var totalBill = Model.TotalPrice; 
+}
 
 <h5 style="margin-top: 10px; text-align: right;">Total Bill: $@totalBill.ToString("0.00")</h5>
 <div class="btn-container">
@@ -59,4 +57,3 @@
         <button>Checkout</button>
     </a>
 </div>
-
